@@ -1,0 +1,13 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: private-eks
+  region: ap-south-1
+  version: "1.23"
+  tags:
+  - OwnedBy: "Saurav" 
+  - ManagedBy: "eksctl"
+kubernetesNetworkConfig:
+  ipFamily: IPv4
+iam:
+  withOIDC: true
