@@ -9,7 +9,7 @@
 
 [Troubleshooting]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html))
 
-[Bootstrap with containerd instead of docker]([https://](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#containerd-bootstrap))
+[Bootstrap with containerd instead of docker](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#containerd-bootstrap)
 
 [EKS Optimized Amazon AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html)
 
@@ -107,7 +107,7 @@ If you are running a stateful application across multiple Availability Zones tha
     
     - Amazon EKS managed node groups create and manage Amazon EC2 instances for you.
 
-    - Every managed node is provisioned as part of an Amazon EC2 Auto Scaling group that's managed for you by Amazon EKS. Moreover, every resource including Amazon EC2 instances and Auto Scaling groups run within your AWS account.
+    - Every managed node is provisioned as part of an Amzon EC2 Auto Scaling group that's managed for you by Amazon EKS. Moreover, every resource including Amazon EC2 instances and Auto Scaling groups run within your AWS account.
 
     - **The Auto Scaling group of a managed node group spans every subnet that you specify when you create the group.**
 
