@@ -1,19 +1,20 @@
 # AWS EKS
 
 #### Important Links
-[Managed node group errors]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#troubleshoot-managed-node-groups))
 
-[Private Cluster Considerations]([https://](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html))
+[Managed node group errors]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#troubleshoot-managed-node-groups)
 
-[Enabling IAM user and role access to your cluster]([https://](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html))
+[Private Cluster Considerations]([https://](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)
 
-[Troubleshooting]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html))
+[Enabling IAM user and role access to your cluster]([https://](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
+
+[Troubleshooting]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html)
 
 [Bootstrap with containerd instead of docker](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#containerd-bootstrap)
 
 [EKS Optimized Amazon AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html)
 
-[EKS ECR Issues]([https://](https://aws.amazon.com/premiumsupport/knowledge-center/eks-ecr-troubleshooting/))
+[EKS ECR Issues]([https://](https://aws.amazon.com/premiumsupport/knowledge-center/eks-ecr-troubleshooting/)
 
 
 
