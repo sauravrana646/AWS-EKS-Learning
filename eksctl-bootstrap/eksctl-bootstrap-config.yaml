@@ -5,15 +5,15 @@ metadata:
   region: ap-south-1
   version: "1.23"
   tags:
-  - OwnedBy: "Saurav" 
-  - ManagedBy: "eksctl"
+    OwnedBy: "Saurav" 
+    ManagedBy: "eksctl"
 
 kubernetesNetworkConfig:
   ipFamily: IPv4
 
 iam:
   withOIDC: true
-  serviceAccounts:
+  # serviceAccounts:
   # - metadata:
   #     name: s3-reader
   #     # if no namespace is set, "default" will be used;
@@ -41,30 +41,30 @@ iam:
   #   roleName: eksctl-cluster-autoscaler-role
   #   roleOnly: true
 
-# iamIdentityMappings:
-#   - arn: arn:aws:iam::000000000000:role/myAdminRole
-#     groups:
-#       - system:masters
-#     username: admin
-#     noDuplicateARNs: true # prevents shadowing of ARNs
+iamIdentityMappings:
+  - arn: arn:aws:iam::971532881571:user/reboot
+    groups:
+      - system:masters
+    username: reboot
+    noDuplicateARNs: true # prevents shadowing of ARNs
 
 #   - arn: arn:aws:iam::000000000000:user/myUser
 #     username: myUser
 #     noDuplicateARNs: true
 
 vpc:
-  publicAccessCIDRs: ["169.149.229.15/16","0.0.0.0/0"]                  # When using this to restrict endpoint access make sure either privateAcess is true or Nodes IP is whitelisted here else they won't be able to join the cluster.
+  publicAccessCIDRs: ["14.141.28.114/32"]                  # When using this to restrict endpoint access make sure either privateAcess is true or Nodes IP is whitelisted here else they won't be able to join the cluster.
   clusterEndpoints:
     publicAccess:  true
     privateAccess: true
   nat:
-    gateway: true
+    gateway: Single
   
 managedNodeGroups:
   - name: ng-1-workers
     availabilityZones: ["ap-south-1b","ap-south-1c"]
-    ami: #Add here
-    instanceType: t4g.medium
+    ami: ami-09115f30a400e6e15    #Add here and custom AMI ID can be found in the links section
+    instanceType: t3.medium
     minSize: 2
     maxSize: 4
     desiredCapacity: 3
@@ -84,13 +84,19 @@ managedNodeGroups:
     ssh:
       allow: true
       publicKeyPath: "./ekskey.pub"
-      enableSsm: true
+      # enableSsm: true
     overrideBootstrapCommand: |
       #!/bin/bash
       /etc/eks/bootstrap.sh reboot-private-eks --container-runtime containerd
 addons:
 - name: vpc-cni
-  wellKnownPolicies:
+  version: v1.10.4
+- name: coredns
+  version: v1.8.7
+- name: kube-proxy
+  version: v1.23.7
+
+
 
 
   
