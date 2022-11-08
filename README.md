@@ -1,7 +1,7 @@
 # AWS EKS
 
 #### Important Links
-[Managed node group errors.]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#troubleshoot-managed-node-groups))
+[Managed node group errors]([https://](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#troubleshoot-managed-node-groups))
 
 [Private Cluster Considerations]([https://](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html))
 
@@ -88,7 +88,7 @@ If you are running a stateful application across multiple Availability Zones tha
         | `kubernetes.io/cluster/my-cluster` | owned      |
         | `aws:eks:cluster-name`             | my-cluster |
 
-    - Amazon EKS automatically associates this security group to the following resources that it also creates:
+  - Amazon EKS automatically associates this security group to the following resources that it also creates:
 
       - 2–4 elastic network interfaces (referred to for the rest of this document as network interface) that are created when you create your cluster.
 
