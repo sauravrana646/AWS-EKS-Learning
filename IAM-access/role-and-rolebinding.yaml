@@ -1,0 +1,29 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: reboot-role
+  namespace: default   #change here
+rules:
+  - apiGroups: ["", "extensions", "apps",]
+  # - apiGroups: [""]
+    # resources: ["deployments", "pods"]
+    resources: ["deployments", "replicasets", "pods"]
+    verbs: ["*"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses"]
+    verbs: ["*"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: reboot-role-binding
+  namespace : default      # change here
+subjects :
+- kind: User
+  name: reboot    # put your user's name here
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: reboot-role 
