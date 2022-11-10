@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: searchapp
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: searchapp
+  template:
+    metadata:
+      labels:
+        app: searchapp
+    spec:
+      containers:
+        - name: searchapp
+          image: vimal13/searchapp:v1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: searchapp-svc
+  namespace: default
+spec:
+  selector:
+    app: searchapp
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailapp
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: mailapp
+  template:
+    metadata:
+      labels:
+        app: mailapp
+    spec:
+      containers:
+        - name: mailapp
+          image: vimal13/mailapp:v1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailapp-svc
+  namespace: default
+spec:
+  selector:
+    app: mailapp
+  ports:
+    - port: 80
+      targetPort: 80
