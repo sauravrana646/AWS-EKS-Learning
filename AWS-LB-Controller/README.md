@@ -4,7 +4,7 @@
 
 [ALB Ingress Annotations](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/)
 
-[Troubleshooting Permission Issues in ALB]([https://](https://aws.amazon.com/premiumsupport/knowledge-center/eks-load-balancer-webidentityerr/))
+[Troubleshooting Permission Issues in ALB](https://aws.amazon.com/premiumsupport/knowledge-center/eks-load-balancer-webidentityerr/)
 
 [TargetPort Missing Issue](https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/1695)
 
