@@ -13,7 +13,7 @@ kubernetesNetworkConfig:
 
 iam:
   withOIDC: true
-  # serviceAccounts:
+  serviceAccounts:
   # - metadata:
   #     name: s3-reader
   #     # if no namespace is set, "default" will be used;
@@ -32,14 +32,23 @@ iam:
   #   attachPolicyARNs:
   #   - "arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess"
   #   - "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess"
-  # - metadata:
-  #     name: cluster-autoscaler
-  #     namespace: kube-system
-  #     labels: {aws-usage: "cluster-ops"}
-  #   wellKnownPolicies:
-  #     autoScaler: true
-  #   roleName: eksctl-cluster-autoscaler-role
-  #   roleOnly: true
+  - metadata:
+      name: cluster-autoscaler
+      namespace: kube-system
+      labels: {aws-usage: "cluster-ops"}
+    wellKnownPolicies:
+      autoScaler: true
+    roleName: eksctl-cluster-autoscaler-role
+    roleOnly: true   
+          # This will only create a role for the cluster autoscaler but will not a create a service account inside k8s with ARN of role mapped in sa
+  - metadata:
+      name: aws-load-balancer-controller
+      namespace: kube-system
+      labels: {aws-usage: "cluster-ops"}
+    wellKnownPolicies:
+      awsLoadBalancerController: true
+    roleName: eksctl-aws-loadbalancer-controller-role
+    roleOnly: false         # This will only create a role for the cluster autoscaler but will not a create a service account inside k8s with ARN of role mapped in sa
 
 iamIdentityMappings:
   - arn: arn:aws:iam::971532881571:user/reboot
@@ -65,9 +74,9 @@ managedNodeGroups:
     availabilityZones: ["ap-south-1b","ap-south-1c"]
     ami: ami-09115f30a400e6e15    #Add here and custom AMI ID can be found in the links section
     instanceType: t3.medium
-    minSize: 2
+    minSize: 1
     maxSize: 4
-    desiredCapacity: 3
+    desiredCapacity: 1
     volumeSize: 50
     privateNetworking: true
     propagateASGTags: true
